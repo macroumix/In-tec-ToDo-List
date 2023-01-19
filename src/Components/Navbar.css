@@ -1,0 +1,48 @@
+#navbar {
+    position: fixed;
+    display: grid;
+    height: 100px;
+    width: 850px;
+    margin: 50px;
+    grid-template-columns: 3fr 20fr 10fr 3fr;
+    padding: 25px;
+    background: linear-gradient(to right, #898178ff, #BB957Bff);
+    border: 1px solid linear-gradient(to right, #898178ff, #BB957Bff);
+    border-radius: 5%;
+    z-index: 999;
+}
+
+#store-id {
+    border-radius: 45%;
+}
+
+#store-id:hover{
+    background-color: rgba(35, 35, 35,0.5);
+}
+
+#home-button {
+    height: 45px;
+    border-radius: 45%;
+}
+
+#home-button:hover {
+    height: 45px;
+    background-color: rgba(35, 35, 35,0.5);
+}
+
+#shopping-cart {
+    height: 45px;
+    border-radius: 45%;
+}
+
+#shopping-cart:hover {
+    height: 45px;
+    background-color: rgba(35, 35, 35,0.5);
+}
+
+#navbar > * {
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

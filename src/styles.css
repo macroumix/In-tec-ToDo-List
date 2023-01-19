@@ -1,0 +1,21 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+#main-div{
+    position:relative;
+    top: 150px;
+}
+
+body {
+    width: 100%;
+    background: linear-gradient(to right, #425631ff, #792108ff);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+
+@media (max-width: 1250px) {
+    /* … */
+  }

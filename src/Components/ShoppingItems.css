@@ -1,0 +1,42 @@
+#shopping-object{
+    padding: 25px;
+    display:grid;
+    grid-template-columns: 5fr 5fr;
+}
+
+.shopping-image{
+    text-align: right;
+}
+
+#shopping-cart-row-1 {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+#shopping-cart-row-2 img {
+    margin: 10px;
+    height: 90px;
+}
+
+#shopping-cart-row-3 {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#shopping-cart-row-3 > button {
+    background-color: #B17949ff;
+    border: none;
+    width: 35px;
+}
+
+#shopping-cart-row-3 > button:hover {
+    opacity: 0.75;
+}
+
+#shopping-cart-row-3 > button:active {
+    opacity: 1;
+    border: 1px solid black;
+}
