@@ -1,17 +1,23 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap');
-
-* {
+*, *::before, *::after {
   box-sizing: border-box;
 }
 
-html {
-  font-family: 'Noto Sans JP', sans-serif;
+#main-div{
+
 }
 
-#root {
-  background-color: #CBA277ff;
-  border: 1px groove #CBA277ff;
-  border-radius: 3.5%;
-  width: 950px;
-  height: 1700px;
+#root{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+body {
+  width: 100%;
+  background: url(./Images/background.jpeg) no-repeat;
+  background-size: cover;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }

@@ -1,39 +1,26 @@
 import React from "react";
 
-import "./Navbar.css";
-import ShoppingCart from "./ShoppingCart";
-import homeButton from "../Images/home.png";
-import blackHomeButton from "../Images/home-black.png";
+import "./NavBar.css";
 
-const Navbar = ({ totalNumberOfOrder, hasCartItems, isCartVisible, setIsCartVisible }) => {
-  const homeVisibilityHandler = () => {
-    setIsCartVisible(false);
-  };
+
+const NavBar = ({ isVisible, setIsVisible }) => {
 
   return (
     <div id="navbar">
-      <div onClick={homeVisibilityHandler} id="store-id">
-        <p>UMIX</p>
-      </div>
-      <div>
-        
-      </div>
-        <ShoppingCart
-        totalNumberOfOrder={totalNumberOfOrder}
-          hasCartItems={hasCartItems}
-          isCartVisible={isCartVisible}
-          setIsCartVisible={setIsCartVisible}
-        />
-      <div>
-        <img
-          onClick={homeVisibilityHandler}
-          id="home-button"
-          src={isCartVisible? homeButton : blackHomeButton}
-          alt="home-button"
-        />
-      </div>
+        <div onClick={() => setIsVisible(0)}>
+            Home
+        </div>
+        <div onClick={() => setIsVisible(1)}>
+            Serkan SAGLAM
+        </div>
+        <div onClick={() => setIsVisible(2)}>
+            Serkan AKALIN
+        </div>
+        <div onClick={() => setIsVisible(3)}>
+            Fatih SARAYDAR
+        </div>
     </div>
   );
 };
 
-export default Navbar;
+export default NavBar;

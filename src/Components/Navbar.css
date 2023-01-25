@@ -1,10 +1,9 @@
 #navbar {
-    position: fixed;
     display: grid;
     height: 100px;
     width: 850px;
     margin: 50px;
-    grid-template-columns: 3fr 20fr 10fr 3fr;
+    grid-template-columns: 5fr 20fr 15fr 15fr;
     padding: 25px;
     background: linear-gradient(to right, #898178ff, #BB957Bff);
     border: 1px solid linear-gradient(to right, #898178ff, #BB957Bff);

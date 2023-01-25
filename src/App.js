@@ -1,60 +1,49 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
 import "./styles.css";
-import Navbar from "./Components/Navbar";
-import ShoppingItems from "./Components/ShoppingItems";
-import Welcome from "./Components/Welcome";
-import ShoppingCartItems from "./Components/ShoppingCartItems";
-import { shoppingObject } from "./Components/ShoppingItems";
+import CivilWorks from "./Components/CivilWorks";
+import NavBar from "./Components/NavBar";
+import FatihS from "./Components/FatihS";
+import SerkanA from "./Components/SerkanA";
+import SerkanS from "./Components/SerkanS";
+import Input from "./Components/Input";
+
+const DUMMY_TASKS = [
+  {
+    SerkanS:"Hofor Drainage Study",
+  },
+  {
+    SerkanS:"Resko Topographic Study",
+  },
+  {
+    SerkanA:"Italy - BD - PVCase / Geotechnic / Hydraulic Study"
+  },
+  {
+    FatihS:"Botein Geotechnical Study"
+  },
+]
+
 
 function App() {
-  const [isCartVisible, setIsCartVisible] = useState(false);
-  const [totalNumberOfOrder, setTotalNumberOfOrder] = useState(0);
-  const [cart, setCart] = useState(
-    shoppingObject.reduce((prev, next) => {
-      return { ...prev, [next.name]: 0 };
-    }, {})
-  );
+  const [isVisible, setIsVisible] = useState(0)
+  const [newTask, setNewTask] = useState({})
 
-  useEffect(() => {
-    setTotalNumberOfOrder(Object.values(cart).reduce((sum, i) => sum + i, 0));
-  }, [cart]);
+  const saveNewTask = (enteredTask) => {
+    setNewTask(DUMMY_TASKS.push(enteredTask))
+  }
+  console.log("new task is ", newTask);
 
-  const shoppingItemIncreaseHandler = (name) => {
-    setCart((prev) => ({
-      ...prev,
-      [name]: prev[name] + 1,
-    }));
-  };
 
-  const shoppingItemDecreaseHandler = (name) => {
-    setCart((prev) => ({
-      ...prev,
-      [name]: prev[name] - 1,
-    }));
-  };
 
   return (
     <>
-      <Navbar
-        totalNumberOfOrder={totalNumberOfOrder}
-        isCartVisible={isCartVisible}
-        setIsCartVisible={setIsCartVisible}
-      />
+      <NavBar isVisible={isVisible} setIsVisible={setIsVisible}/>
       <div id="main-div">
-      {isCartVisible ? (
-        <ShoppingCartItems
-          totalNumberOfOrder={totalNumberOfOrder}
-          cart={cart}
-        />
-      ) : (
-        <Welcome />
-      )}
-      <ShoppingItems
-        cart={cart}
-        onIncrease={shoppingItemIncreaseHandler}
-        onDecrease={shoppingItemDecreaseHandler}
-      />
+      <CivilWorks />
+      {isVisible === 0 ? <Input onUpdate={saveNewTask} tasks={DUMMY_TASKS}/> : ""}
+      {isVisible === 1 ? <SerkanS tasks={DUMMY_TASKS}/> : ""}
+      {isVisible === 2 ? <SerkanA tasks={DUMMY_TASKS} /> : ""}
+      {isVisible === 3 ? <FatihS tasks={DUMMY_TASKS} /> : ""}
       </div>
     </>
   );
