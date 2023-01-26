@@ -8,42 +8,65 @@ import SerkanA from "./Components/SerkanA";
 import SerkanS from "./Components/SerkanS";
 import Input from "./Components/Input";
 
-const DUMMY_TASKS = [
+ const DUMMY_TASKS = [
   {
-    SerkanS:"Hofor Drainage Study",
+    name: "SerkanS",
+    task: "Deneme ASD 123",
   },
   {
-    SerkanS:"Resko Topographic Study",
+    name: "SerkanS",
+    task: "Deneme ASD 234",
   },
   {
-    SerkanA:"Italy - BD - PVCase / Geotechnic / Hydraulic Study"
+    name: "SerkanA",
+    task: "Deneme QWE 123",
   },
   {
-    FatihS:"Botein Geotechnical Study"
+    name: "SerkanA",
+    task: "Deneme QWE 234",
   },
-]
+  {
+    name: "FatihS",
+    task: "Deneme ZXC 123",
+  },
+  {
+    name: "FatihS",
+    task: "Deneme ZXC 234",
+  },
+ ]
 
 
 function App() {
   const [isVisible, setIsVisible] = useState(0)
-  const [newTask, setNewTask] = useState({})
 
   const saveNewTask = (enteredTask) => {
-    setNewTask(DUMMY_TASKS.push(enteredTask))
+    DUMMY_TASKS.push(enteredTask)
   }
-  console.log("new task is ", newTask);
 
+  
+  const removeTaskHandler = (toDo) => {
 
+    console.log("todo is ", toDo);
 
+    const toErase = DUMMY_TASKS.map(element => element.task).indexOf(toDo)
+    console.log(DUMMY_TASKS[0])
+
+    console.log("to erase is ",DUMMY_TASKS.filter(element => element.task === toDo) ,toErase);
+
+    DUMMY_TASKS.splice(toErase,1);
+
+    console.log("final dummtasks are ", DUMMY_TASKS);
+  }
+ 
   return (
     <>
       <NavBar isVisible={isVisible} setIsVisible={setIsVisible}/>
       <div id="main-div">
-      <CivilWorks />
-      {isVisible === 0 ? <Input onUpdate={saveNewTask} tasks={DUMMY_TASKS}/> : ""}
-      {isVisible === 1 ? <SerkanS tasks={DUMMY_TASKS}/> : ""}
-      {isVisible === 2 ? <SerkanA tasks={DUMMY_TASKS} /> : ""}
-      {isVisible === 3 ? <FatihS tasks={DUMMY_TASKS} /> : ""}
+      <Input onUpdate={saveNewTask} tasks={DUMMY_TASKS} />
+      {isVisible === 0 ? <CivilWorks /> : ""}
+      {isVisible === 1 ? <SerkanS tasks={DUMMY_TASKS} removeTask={removeTaskHandler}/> : ""}
+      {isVisible === 2 ? <SerkanA tasks={DUMMY_TASKS} removeTask={removeTaskHandler}/> : ""}
+      {isVisible === 3 ? <FatihS tasks={DUMMY_TASKS} removeTask={removeTaskHandler}/> : ""}
       </div>
     </>
   );

@@ -10,6 +10,13 @@
 }
 
 .civil > li {
+    display:flex;
+    justify-content: center;
+    align-items: center;
     padding: 15px;
-    margin: 10px;
+}
+
+li > p{
+    cursor: pointer;
+    margin: 15px;
 }
